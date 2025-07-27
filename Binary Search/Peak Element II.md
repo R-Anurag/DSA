@@ -3,15 +3,16 @@
 ## Problem Statement
 Given a 2D matrix `mat` of integers (size `m x n`), find any **peak element**.
 A **peak** is an element that is **strictly greater** than its top, bottom, left, and right neighbors (if they exist).
-## Input
+### Input
 - `mat`: 2D vector of integers
 - `1 <= m, n <= 500`
 - All elements in `mat` are distinct
-## Output
+### Output
 - Return a vector `[i, j]` such that `mat[i][j]` is a peak
-## Note
+### Note
 - Multiple peaks may exist; return **any one**
-- You can access `mat[i][j]` in O(1) time
+- You may assume that the entire matrix is surrounded by an outer perimeter with the value -1 in each cell
+- You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time.
 ---
 
 ## Intuition
