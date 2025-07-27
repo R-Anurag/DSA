@@ -8,7 +8,7 @@ Return the **index of any peak element**.
 ---
 
 ## Binary Search Approach (O(log n))
-- Imagine Array with multiple segments sorted in ascending or descending order. 
+- Imagine Array with multiple segments sorted in ascending or descending order. If we want to visualize an array with the peak elements from the graphical point of view, it must be one of the following:
 ## Graph Representation of array
 ![Peak Graph 4](../images/arrWithSinglePeak.png)
 ![Peak Graph 1](../images/arrWithMultiplePeaks.png)
