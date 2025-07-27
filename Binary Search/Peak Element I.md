@@ -1,5 +1,4 @@
 # Find Peak Element 
----
 
 ## Problem Definition
 Given an array `nums`, a **peak element** is one that is **strictly greater than its neighbors**.
@@ -15,6 +14,19 @@ Even though the array is not sorted, you can use **slope logic** to perform bina
 - mid on an **increasing slope** → the peak lies to the **right**
 - mid on a **decreasing slope** → the peak lies to the **left**
 - mid in a valley → peak lies on either sides
+
+## Graph
+### Array with single peak
+![Peak Graph 1](../images/arrWithMultiplePeaks.png)
+### Array with multiple peaks
+![Peak Graph 2](../images/ArrWithPeakAtFirstElement.png)
+### Array with peak at first element
+![Peak Graph 3](../images/ArrWithPeakAtLastElement.png)
+### Array with peak at last element
+![Peak Graph 4](../images/arrWithSinglePeak.png)
+
+---
+
 
 ### Code:
 ```cpp
@@ -46,7 +58,7 @@ public:
 ```
 ---
 
-## ⛓Time and Space Complexity
+## Time and Space Complexity
 
 | Approach        | Time Complexity | Space Complexity |
 |-----------------|-----------------|------------------|
@@ -61,16 +73,7 @@ public:
 |------------------------|----------------------|------------------------|
 | Strategy              | Check every element  | Use slope direction    |
 | Performance on large input | Slower             | Much faster            |
-| Peak Guarantee        | Always finds highest | Returns *a* peak       |
-| Use Case              | Simple, brute-force  | Efficient, smart       |
+| Peak Guarantee        | Can find highest peak | Returns *a* peak       |
 
 ---
 
-## Final Words
-- Always check edge cases: size = 1, peak at start or end
-- Binary search doesn't require sorted array here
-- Understand slope-based movement:
-  - `mid < mid+1`: go **right**
-  - `mid > mid+1`: go **left**
-- Can only find **highest peak** using linear scan
----
