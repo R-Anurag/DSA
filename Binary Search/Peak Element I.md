@@ -20,10 +20,10 @@ Return the **index of any peak element**.
 ### Why Binary Search?
 Binary search doesn't always require sorted array.
 Even though the array is not sorted, you can use **slope logic** to perform binary search:
-- mid greater than both neighbors → it’s a **peak**
-- mid on an **increasing slope** → "A" peak definitely lies to the **right**
-- mid on a **decreasing slope** → "A" peak definitely lies to the **left**
-- mid in a valley → "A" peak definitely lies on either sides
+- **Case-1**: mid greater than both neighbors → it’s a **peak**
+- **Case-2**: mid on an **increasing slope** → "A" peak definitely lies to the **right**
+- **Case-3**: mid on a **decreasing slope** → "A" peak definitely lies to the **left**
+- **Case-4**: mid in a valley → "A" peak definitely lies on either sides
 
 
 ### Code:
@@ -42,11 +42,11 @@ public:
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1])
+            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) // Case-1
                 return mid; // will always execute
-            else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1])
+            else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1]) // Case-2
                 low = mid + 1;
-            else
+            else // Case-3 & Case-4
                 high = mid - 1;
         }
 
