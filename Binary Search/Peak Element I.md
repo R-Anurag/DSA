@@ -8,24 +8,21 @@ Return the **index of any peak element**.
 ---
 
 ## Binary Search Approach (O(log n))
-### Why Binary Search?
-Even though the array is not sorted, you can use **slope logic** to perform binary search:
-- mid greater than both neighbors → it’s a **peak**
-- mid on an **increasing slope** → the peak lies to the **right**
-- mid on a **decreasing slope** → the peak lies to the **left**
-- mid in a valley → peak lies on either sides
-
 ## Graph
-### Array with single peak
-![Peak Graph 1](../images/arrWithMultiplePeaks.png)
-### Array with multiple peaks
-![Peak Graph 2](../images/ArrWithPeakAtFirstElement.png)
-### Array with peak at first element
-![Peak Graph 3](../images/ArrWithPeakAtLastElement.png)
-### Array with peak at last element
 ![Peak Graph 4](../images/arrWithSinglePeak.png)
+![Peak Graph 1](../images/arrWithMultiplePeaks.png)
+![Peak Graph 2](../images/ArrWithPeakAtFirstElement.png)
+![Peak Graph 3](../images/ArrWithPeakAtLastElement.png)
 
 ---
+
+### Why Binary Search?
+Binary search doesn't always require sorted array.
+Even though the array is not sorted, you can use **slope logic** to perform binary search:
+- mid greater than both neighbors → it’s a **peak**
+- mid on an **increasing slope** → "A" peak definitely lies to the **right**
+- mid on a **decreasing slope** → "A" peak definitely lies to the **left**
+- mid in a valley → "A" peak definitely lies on either sides
 
 
 ### Code:
