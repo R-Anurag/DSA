@@ -1,4 +1,3 @@
-```md
 # 🔺 Find Peak Element – Revision Notes
 
 ---
