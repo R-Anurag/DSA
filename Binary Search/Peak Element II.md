@@ -1,7 +1,17 @@
 # 2D Peak Finding
 
 ## Problem Statement
-> Given a 2D matrix `mat` of integers where **no global sorting is guaranteed**, find any **2D peak element**. A peak is an element strictly greater than its **top and bottom neighbors** (in the same column), and its **left and right neighbors** (in the same row) — but here, we check only **vertical neighbors** because we’re using the row-wise strategy.
+Given a 2D matrix `mat` of integers (size `m x n`), find any **peak element**.
+A **peak** is an element that is **strictly greater** than its top, bottom, left, and right neighbors (if they exist).
+## Input
+- `mat`: 2D vector of integers
+- `1 <= m, n <= 500`
+- All elements in `mat` are distinct
+## Output
+- Return a vector `[i, j]` such that `mat[i][j]` is a peak
+## Note
+- Multiple peaks may exist; return **any one**
+- You can access `mat[i][j]` in O(1) time
 ---
 
 ## Intuition
@@ -67,15 +77,13 @@ public:
 | Find max in row | O(n) |
 | Binary search on rows | O(log m) |
 | **Total** | **O(n × log m)** |
-
-This is optimal for **wide** matrices (more rows than columns).
 ---
 
 ## When to Use What
 | Scenario | Approach |
 |----------|----------|
-| Rows ≫ Columns | ✅ Row-wise binary search (this method) |
-| Columns ≫ Rows | ✅ Column-wise binary search |
+| Rows ≫ Columns | Row-wise binary search (this method) |
+| Columns ≫ Rows | Column-wise binary search |
 ---
 
 ## Why a 2D Binary Search fails But 1D Binary Search Works?
@@ -89,3 +97,4 @@ This is optimal for **wide** matrices (more rows than columns).
 - We fix one direction (row or column), and in that row/column, we always take the maximum element.
 - That guarantees we’re exploring the most promising peak candidate.
 - Then we reduce the search space in the other direction based on the slope (neighboring values).
+---
