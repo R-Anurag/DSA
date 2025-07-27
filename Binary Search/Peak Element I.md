@@ -8,7 +8,8 @@ Return the **index of any peak element**.
 ---
 
 ## Binary Search Approach (O(log n))
-## Graph
+- Imagine Array with multiple segments sorted in ascending or descending order. 
+## Graph Representation of array
 ![Peak Graph 4](../images/arrWithSinglePeak.png)
 ![Peak Graph 1](../images/arrWithMultiplePeaks.png)
 ![Peak Graph 2](../images/ArrWithPeakAtFirstElement.png)
@@ -42,7 +43,7 @@ public:
             int mid = low + (high - low) / 2;
 
             if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1])
-                return mid;
+                return mid; // will always execute
             else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1])
                 low = mid + 1;
             else
