@@ -1,29 +1,22 @@
-# 🔺 Find Peak Element – Revision Notes
-
+# Find Peak Element 
 ---
 
-## 📌 Problem Definition
-
+## Problem Definition
 Given an array `nums`, a **peak element** is one that is **strictly greater than its neighbors**.
-
 Return the **index of any peak element**.
-
 > A peak is defined as:  
 > `nums[i] > nums[i - 1] && nums[i] > nums[i + 1]`
-
 ---
 
-## ✅ Binary Search Approach (O(log n))
-
-### ✔️ Why Binary Search?
-
+## Binary Search Approach (O(log n))
+### Why Binary Search?
 Even though the array is not sorted, you can use **slope logic** to perform binary search:
-- If you're on an **increasing slope**, the peak lies to the **right**
-- If you're on a **decreasing slope**, the peak lies to the **left**
-- If the current element is greater than both neighbors → it’s a **peak**
+- mid greater than both neighbors → it’s a **peak**
+- mid on an **increasing slope** → the peak lies to the **right**
+- mid on a **decreasing slope** → the peak lies to the **left**
+- mid in a valley → peak lies on either sides
 
-### ✅ Code:
-
+### Code:
 ```cpp
 class Solution {
 public:
@@ -51,34 +44,9 @@ public:
     }
 };
 ```
-
 ---
 
-## 📈 Graphical Example
-
-Example array:
-
-```
-Index:      0   1   2   3    4   5   6
-nums[]:     1   3   8   12   4   2   0
-```
-
-Graph (conceptually):
-```
-           *
-         *   ← peak at index 3 (12)
-       *
-     *
-   *
- *
-*
-```
-
-- `nums[3] = 12` is a **peak**: greater than both neighbors `8` and `4`
-
----
-
-## ⛓️ Time and Space Complexity
+## ⛓Time and Space Complexity
 
 | Approach        | Time Complexity | Space Complexity |
 |-----------------|-----------------|------------------|
@@ -87,7 +55,7 @@ Graph (conceptually):
 
 ---
 
-## 🔥 Why Binary Search is Better Than Linear
+## Why Binary Search is Better Than Linear
 
 | Feature               | Linear Search        | Binary Search         |
 |------------------------|----------------------|------------------------|
@@ -98,42 +66,11 @@ Graph (conceptually):
 
 ---
 
-## 🧠 Tips for Interviews
-
+## Final Words
 - Always check edge cases: size = 1, peak at start or end
 - Binary search doesn't require sorted array here
 - Understand slope-based movement:
   - `mid < mid+1`: go **right**
   - `mid > mid+1`: go **left**
-- Can modify to return **highest peak** using linear scan
-
+- Can only find **highest peak** using linear scan
 ---
-
-## ✨ Bonus: Highest Peak (Value-wise)
-
-```cpp
-int findHighestPeakElement(vector<int>& nums) {
-    int n = nums.size();
-    int peakIndex = -1;
-    int maxPeak = INT_MIN;
-
-    for (int i = 0; i < n; i++) {
-        bool leftOK = (i == 0) || (nums[i] > nums[i - 1]);
-        bool rightOK = (i == n - 1) || (nums[i] > nums[i + 1]);
-
-        if (leftOK && rightOK && nums[i] > maxPeak) {
-            maxPeak = nums[i];
-            peakIndex = i;
-        }
-    }
-    return peakIndex;
-}
-```
-
----
-
-## 📚 Resources
-
-- LeetCode #162: Find Peak Element
-- Binary Search Explained Visually: [https://visualgo.net](https://visualgo.net/en/bst)
-```
